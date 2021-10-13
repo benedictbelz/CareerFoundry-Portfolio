@@ -1,0 +1,1682 @@
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*---------------------------------           -----------------------------------*/
+/*---------------------------------  GENERAL  -----------------------------------*/
+/*---------------------------------           -----------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+html,
+body {
+    box-sizing: border-box;
+    position: fixed;
+    height: 100%;
+	width: 100%;
+    overflow: hidden;
+    margin: 0rem;
+    padding: 0rem;
+}
+
+body {
+    color: #141414;
+	font-family: "Helvetica Neue", "Webfont", sans-serif;
+	font-size: 1em;
+}
+
+img {
+	display: block;
+	-khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+p, h1 {
+	margin: 0rem;
+}
+
+ul {
+	margin: 0rem;
+	padding: 0rem;
+	list-style: none;
+}
+
+#entrance,
+#information,
+#legal,
+#preload,
+#portfolio,
+#showroom {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+	height: 100%;
+	width: 100vw;
+    overflow-y: auto;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*------------  TRANSITION  ------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#entrance,
+#preload,
+#logo,
+#enter {
+    transition: opacity 0.5s ease-in-out,
+                transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+#logo,
+#text,
+#enter{
+    transition: transform 1s ease-in-out;
+    will-change: transform;
+}
+
+body.transition #information,
+body.transition #legal,
+body.transition #portfolio,
+body.transition #showroom,
+body.transition #navigation,
+body.transition #scrollbarInformation,
+body.transition #scrollbarLegal,
+body.transition #scrollbarPortfolio,
+body.transition #scrollbarShowroom {
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+#navigationLeft>img,
+#navigationRight>img,
+#enter>img {
+    transition: opacity 0.25s ease-in-out,
+                transform 0.25s ease-in-out,
+                width 0.25s ease-in-out;
+}
+
+#selection>li>.bold,
+#selection>li>.regular {
+    transition: top 0.25s ease-in-out,
+                transform 0.25s ease-in-out;
+}
+
+#collection,
+#navigation,
+#picture,
+.wrapper {
+    transition: grid-gap 0.5s ease-in-out,
+				padding 0.5s ease-in-out;
+}
+
+#social>a,
+.title,
+.title>p,
+.link>a,
+.link>a>div,
+.click>.left,
+.click>.right,
+.click>.left>div,
+.click>.right>div {
+    transition: background 0.25s ease-in-out,
+                transform 0.25s ease-in-out,
+				opacity 0.25s ease-in-out;
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------             -----------------------------------*/
+/*-------------------------------  SCROLLBAR  -----------------------------------*/
+/*-------------------------------             -----------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+html.desktop #scrollbarInformation,
+html.desktop #scrollbarLegal,
+html.desktop #scrollbarPortfolio,
+html.desktop #scrollbarShowroom {
+	position: absolute;
+	z-index: 100;
+	top: 0%;
+    right: 0%;
+	height: 100%;
+	width: 0.25rem;
+	perspective: 1000;
+    -webkit-perspective: 1000;
+}
+
+html.desktop,
+html.desktop #information,
+html.desktop #legal,
+html.desktop #portfolio,
+html.desktop #showroom {
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+}
+
+html.desktop::-webkit-scrollbar,
+html.desktop #information::-webkit-scrollbar,
+html.desktop #legal::-webkit-scrollbar,
+html.desktop #portfolio::-webkit-scrollbar,
+html.desktop #showroom::-webkit-scrollbar {
+	display: none;
+	background-color: transparent;
+    height: 0rem;
+    width: 0rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*-------  SCROLLBAR INFORMATION  ------*/
+/*--------------------------------------*/
+/****************************************/
+
+#scrollbarInformation>div {
+    height: 100%;
+    width: 100%;
+	background: #FFFFFF;
+    transform: scaleY(0);
+}
+
+.legal #scrollbarInformation,
+.portfolio #scrollbarInformation,
+.showroom #scrollbarInformation {transform: translate(100vw,0vh);}
+.information #scrollbarInformation {transform: translate(0vw,0vh);}
+
+/****************************************/
+/*--------------------------------------*/
+/*---------  SCROLLBAR LEGAL  ----------*/
+/*--------------------------------------*/
+/****************************************/
+
+#scrollbarLegal>div {
+    height: 100%;
+    width: 100%;
+	background: #FFFFFF;
+    transform: scaleY(0);
+}
+
+.information #scrollbarLegal,
+.portfolio #scrollbarLegal,
+.showroom #scrollbarLegal {transform: translate(100vw,0vh);}
+.legal #scrollbarLegal {transform: translate(0vw,0vh);}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------  SCROLLBAR PORTFOLIO  -------*/
+/*--------------------------------------*/
+/****************************************/
+
+#scrollbarPortfolio>div {
+    height: 100%;
+    width: 100%;
+	background: #141414;
+    transform: scaleY(0);
+}
+
+.information #scrollbarPortfolio,
+.legal #scrollbarPortfolio {transform: translate(-100vw,0vh);}
+.portfolio #scrollbarPortfolio {transform: translate(0vw,0vh);}
+.showroom #scrollbarPortfolio {transform: translate(100vw,0vh);}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------  SCROLLBAR SHOWROOM  --------*/
+/*--------------------------------------*/
+/****************************************/
+
+#scrollbarShowroom>div {
+    height: 100%;
+    width: 100%;
+	background: #FFFFFF;
+    transform: scaleY(0);
+}
+
+.information #scrollbarShowroom,
+.legal #scrollbarShowroom,
+.portfolio #scrollbarShowroom {transform: translate(-100vw,0vh);}
+.showroom #scrollbarShowroom {transform: translate(0vw,0vh);}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------              ----------------------------------*/
+/*-------------------------------  NAVIGATION  ----------------------------------*/
+/*-------------------------------              ----------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+#navigation {
+	pointer-events: none;
+	box-sizing: border-box;
+	position: fixed;
+    top: 0%;
+	left: 0%;
+	z-index: 100;
+	width: 100vw;
+	display: flex;
+	justify-content: space-between;
+	padding: 3rem;
+}
+
+.information #navigation,
+.legal #navigation,
+.portfolio #navigation,
+.showroom #navigation {transform: translate(0vw,0vh)}
+.preload #navigation,
+.entrance #navigation{transform: translate(0vw,100vh)}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  GENERAL  -------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#navigationLeft,
+#navigationRight {
+	cursor: pointer;
+	pointer-events: all;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 4rem;
+	width: 4rem;
+}
+
+#navigationLeft>img,
+#navigationRight>img {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*----------  NAVIGATION LEFT  ---------*/
+/*--------------------------------------*/
+/****************************************/
+
+#navigationLeft>.arrow_up,
+.information #navigationLeft.scrollInformation>.logo_01,
+.information #navigationLeft.scrollInformation>.logo_02,
+.legal #navigationLeft.scrollLegal>.logo_01,
+.legal #navigationLeft.scrollLegal>.logo_02,
+.portfolio #navigationLeft.scrollPortfolio>.logo_01,
+.portfolio #navigationLeft.scrollPortfolio>.logo_02,
+.showroom #navigationLeft.scrollShowroom>.logo_01,
+.showroom #navigationLeft.scrollShowroom>.logo_02 {
+    opacity: 0;
+    width: 0%;
+}
+
+#navigationLeft>.logo_01,
+#navigationLeft>.logo_02,
+.information #navigationLeft.scrollInformation>.arrow_up,
+.legal #navigationLeft.scrollLegal>.arrow_up,
+.portfolio #navigationLeft.scrollPortfolio>.arrow_up,
+.showroom #navigationLeft.scrollShowroom>.arrow_up {
+    opacity: 1;
+    width: 100%;
+}
+
+html.desktop #navigationLeft:hover>.logo_01 {
+	transform: translateX(5%);
+}
+
+html.desktop #navigationLeft:hover>.logo_02 {
+	transform: translateX(-5%);
+}
+
+html.desktop #navigationLeft:hover>.arrow_up {
+	transform: scale(1.25);
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*---------  NAVIGATION RIGHT  ---------*/
+/*--------------------------------------*/
+/****************************************/
+
+#navigationRight>.information_01,
+#navigationRight>.information_02,
+#navigationRight>.arrow_left,
+#navigationRight>.arrow_right {
+	opacity: 0;
+    width: 0%;
+}
+
+.portfolio #navigationRight>.information_01,
+.portfolio #navigationRight>.information_02,
+.information #navigationRight>.arrow_left,
+.legal #navigationRight>.arrow_left,
+.showroom #navigationRight>.arrow_right{
+    opacity: 1;
+    width: 100%;
+}
+
+html.desktop #navigationRight:hover>.information_02 {
+	transform: translateY(-5%);
+}
+
+html.desktop #navigationRight:hover>.arrow_left,
+html.desktop #navigationRight:hover>.arrow_right {
+	transform: scale(1.25);
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*--------------------------------           ------------------------------------*/
+/*--------------------------------  PRELOAD  ------------------------------------*/
+/*--------------------------------           ------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+#preload {
+	z-index: 200;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #FFFFFF;
+	font-size: 1rem;
+}
+
+.preload #preload {opacity: 1;}
+.entrance #preload {transform: translate(0vw,0%); opacity: 0;}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  CIRCLE   -------------*/
+/*--------------------------------------*/
+/****************************************/
+
+@keyframes preload {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
+#circle {
+	height: 4rem;
+	width: 4rem;
+	border-radius: 50%;
+	border-top: 0.2rem solid #141414;
+	border-right: 0.2rem solid #141414;
+	border-bottom: 0.2rem solid #141414;
+	border-left: 0.2rem solid #FFFFFF;
+	animation: preload 1s infinite linear;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*------------  PERCENTAGE   -----------*/
+/*--------------------------------------*/
+/****************************************/
+
+#percentage {
+	position: absolute;
+	font-weight: 200;
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*--------------------------------            -----------------------------------*/
+/*--------------------------------  ENTRANCE  -----------------------------------*/
+/*--------------------------------            -----------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+#entrance {
+	display: grid;
+	grid-template-rows: 1fr auto 1fr;
+	justify-items: center;
+	background: #ffffff;
+	font-size: 1.25rem;
+}
+
+.preload #entrance {opacity: 0;}
+.entrance #entrance {transform: translate(0vw,0%); opacity: 1;}
+.portfolio #entrance {transform: translate(0vw,-100%);}
+
+/****************************************/
+/*--------------------------------------*/
+/*---------------  LOGO   --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#logo {
+	align-self: flex-end;
+	height: 6rem;
+	width: 6rem;
+}
+
+html.mobile #logo {
+    background: url(../media/navigation/logo.gif);
+	background-size: cover;
+}
+
+.preload #logo {transform: translateY(-10%);}
+.entrance #loco {transform: translateY(0%);}
+
+html.desktop #logo>canvas {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+html.mobile #logo>canvas {
+    display: none !important;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*---------------  TEXT   --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#text {
+	align-self: center;
+	text-align: center;
+	font-weight: 200;
+	padding: 4rem 0rem;
+}
+
+.preload #text {transform: scale(0.8);}
+.entrance #text {transform: scale(1);}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  ENTER   --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#enter {
+	cursor: pointer;
+	position: relative;
+	align-self: flex-start;
+	height: 4rem;
+	width: 4rem;
+}
+
+.preload #enter {transform: translateY(10%);}
+.entrance #enter {transform: translateY(0%);}
+
+#enter>.arrow_down {
+	position: absolute;
+	width: 100%;
+}
+
+html.desktop #enter:hover>.arrow_down {
+	transform: scale(1.25);
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------               ---------------------------------*/
+/*-------------------------------  INFORMATION  ---------------------------------*/
+/*-------------------------------               ---------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+#information {
+	background: #141414;
+	font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.entrance #information,
+.legal #information,
+.portfolio #information,
+.showroom #information {transform: translate(100vw,0vh)}
+.information #information {transform: translate(0vw,0vh)}
+
+/****************************************/
+/*--------------------------------------*/
+/*-------------  WRAPPER  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#information>.wrapper {
+    box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+    margin: 0 auto;
+	width: 30rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*-------------  PICTURE  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#picture {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 10rem;
+	padding-bottom: 4rem;
+}
+
+#picture>img {
+	border-radius: 50%;
+	height: 13rem;
+	width: 13rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*-----------  INTRODUCTION  -----------*/
+/*--------------------------------------*/
+/****************************************/
+
+#introduction {
+	font-weight: 200;
+	padding-bottom: 4rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*-------------  CONTACT  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#contact {
+	font-weight: 200;
+	padding-bottom: 4rem;
+}
+
+#phone,
+#email {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#phone {
+	padding-bottom: 1rem;
+}
+
+#phone>img,
+#email>img {
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 1rem;
+}
+
+#phone>a,
+#email>a {
+	text-decoration: none;
+	color: #FFFFFF;
+	margin: 0rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  SOCIAL  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#social {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding-bottom: 4rem;
+}
+
+#social>a {
+	margin: 0rem 0.5rem;
+	height: 2rem;
+	width: 2rem;
+	transform: scale(1);
+}
+
+html.desktop #social>a:hover {
+	transform: scale(1.25);
+}
+
+#social>.github {
+	background: url(../media/information/github.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#social>.instagram {
+	background: url(../media/information/instagram.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#social>.linkedin {
+	background: url(../media/information/linkedin.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#social>.pinterest {
+	background: url(../media/information/pinterest.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#social>.vimeo {
+	background: url(../media/information/vimeo.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#social>.youtube {
+	background: url(../media/information/youtube.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*---------------------------------         -------------------------------------*/
+/*---------------------------------  LEGAL  -------------------------------------*/
+/*---------------------------------         -------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+#legal {
+    background: #141414;
+	font-size: 1rem;
+    color: #FFFFFF;
+}
+.entrance #legal,
+.information #legal,
+.portfolio #legal,
+.showroom #legal{transform: translate(100vw,0vh)}
+.legal #legal{transform: translate(0vw,0vh)}
+
+/****************************************/
+/*--------------------------------------*/
+/*-------------  WRAPPER  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#legal>.wrapper {
+    box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+    margin: 0 auto;
+	width: 30rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*---------------  TEXT  ---------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#legal h1,
+#legal h2 {
+	font-size: 1rem;
+	font-weight: 400;
+    margin: 0rem;
+	padding: 2rem 0rem;
+}
+
+#legal h1:first-child{
+	padding-top: 11rem;
+}
+
+#legal p {
+	font-weight: 200
+}
+
+#legal p:last-child{
+	padding-bottom: 4rem;
+}
+
+#address::after {
+	content: "Benedict Belz \A Senefelderstr. 15 \A 10437 Berlin";
+	white-space: pre;
+}
+
+#data::after {
+	content: "Phone: +49 163 3938055 \A E-Mail: info@benedictbelz.eu \A Internet: www.benedictbelz.eu";
+	white-space: pre;
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------             -----------------------------------*/
+/*-------------------------------  PORTFOLIO  -----------------------------------*/
+/*-------------------------------             -----------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+#portfolio {
+	background: #ffffff;
+	font-size: 1rem;
+}
+
+.entrance #portfolio {transform: translate(0vw,100vh);}
+.information #portfolio {transform: translate(-100vw,0vh);}
+.legal #portfolio {transform: translate(-100vw,0vh);}
+.portfolio #portfolio {transform: translate(0vw,0vh);}
+.showroom #portfolio {transform: translate(100vw,0vh);}
+
+/****************************************/
+/*--------------------------------------*/
+/*-------------  WRAPPER  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#portfolio>.wrapper {
+    box-sizing: border-box;
+    padding: 3rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*------------  SELECTION  -------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#selection {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	flex-direction: row;
+    padding-left: 0rem;
+    padding-right: 0rem;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	opacity: 0;
+}
+
+#selection>li {
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+}
+
+#selection>li:not(:last-child) {
+	margin-right: 0.5rem;
+}
+
+/******************************/
+/*           BOLD             */
+/******************************/
+
+#selection>li>.bold {
+	box-sizing: border-box;
+	font-weight: 400;
+	transform: translateY(-105%);
+	padding-bottom: 0.1rem;
+}
+
+#selection>li.current>.bold {
+	transform: translateY(0%);
+}
+
+/******************************/
+/*          REGULAR           */
+/******************************/
+
+#selection>li>.regular {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	font-weight: 200;
+	text-align: center;
+	top: 0%;
+}
+
+#selection>li.current>.regular {
+	top: 100%;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*------------  COLLECTION  ------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#collection {
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 3rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*---------------  ITEM  ---------------*/
+/*--------------------------------------*/
+/****************************************/
+
+.item {
+	overflow: hidden;
+	box-sizing: border-box;
+	position: relative;
+	border-radius: 1rem;
+}
+
+.item.none {
+	display: none;
+}
+
+.item.opacity {
+	opacity: 0;
+}
+
+.item.fade {
+	animation: fade 1s ease-out normal backwards;
+}
+
+@keyframes fade {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	70% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/******************************/
+/*          DIGITAL           */
+/******************************/
+
+/* .digital>.title {
+	box-sizing: border-box;
+	border: 1px solid #141414;
+	border-radius: 1rem;
+}
+
+.digital>.bar {
+	position: absolute;
+	z-index: 25;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	background: #FFFFFF;
+	border-bottom: 1px solid #141414;
+}
+
+.digital>.bar {
+	height: 2rem;
+	display: flex;
+	align-items: center;
+}
+
+.digital>.bar>div {
+	height: 0.5rem;
+	width: 0.5rem;
+	border: 1px solid #141414;
+	border-radius: 50%;
+	margin-left: 0.25rem;
+}
+
+.digital>.bar>div:first-child {
+	margin-left: 0.75rem;
+} */
+
+/******************************/
+/*          BORDER            */
+/******************************/
+
+.item {
+    border: 1px solid #ffffff;
+}
+
+.item.border {
+    border: 1px solid #141414;
+}
+
+/******************************/
+/*           TITLE            */
+/******************************/
+
+.title {
+	cursor: pointer;
+	position: absolute;
+	z-index: 50;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF;
+	background: transparent;
+}
+
+html.desktop .item:hover>.title {
+	background: rgba(20,20,20,0.75);
+}
+
+.title>p {
+	opacity: 0;
+    pointer-events: none;
+}
+
+.title>.headline {
+	transform: translateY(-50%);
+	font-weight: 400;
+}
+
+.title>.type {
+	transform: translateY(50%);
+	font-weight: 100;
+}
+
+html.desktop .item:hover .headline,
+html.desktop .item:hover .type {
+	opacity: 1;
+	transform: translateY(0%);
+}
+
+/******************************/
+/*           LINK             */
+/******************************/
+
+.link {
+	position: absolute;
+	z-index: 50;
+	bottom: 0%;
+	left: 0%;
+	margin: 1rem;
+	display: flex;
+}
+
+.link>a {
+	display: block;
+	height: 2rem;
+	width: 2rem;
+	opacity: 0;
+	transform: scale(0);
+}
+
+html.desktop #collection>.item:hover>.link>a {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.link>a>div {
+	height: 100%;
+	width: 100%;
+	transform: scale(1);
+}
+
+html.desktop .link>a:hover>div {
+	transform: scale(1.25);
+}
+
+.link>.vimeo>div {
+	background: url(../media/navigation/vimeo.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.link>.youtube>div {
+	background: url(../media/navigation/youtube.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.link>.www>div {
+	background: url(../media/navigation/www.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.link>.github>div {
+	background: url(../media/navigation/github.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+/******************************/
+/*           IMAGE            */
+/******************************/
+
+.item>.image {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #141414;
+}
+
+.item>.image>img {
+	width: 100%;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  FOOTER  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#footer {
+	display: flex;
+	justify-content: center;
+	font-weight: 200;
+	transition: margin 0.5s ease-in-out;
+	margin-top: 3rem;
+}
+
+#footer>p:nth-child(2) {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+#footer>p:last-child {
+	cursor: pointer;
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*--------------------------------            -----------------------------------*/
+/*--------------------------------  SHOWROOM  -----------------------------------*/
+/*--------------------------------            -----------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+#showroom {
+	background: #141414;
+	font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.entrance #showroom,
+.information #showroom,
+.legal #showroom,
+.portfolio #showroom {transform: translate(-100vw,0vh)}
+.showroom #showroom {transform: translate(0vw,0vh)}
+
+/****************************************/
+/*--------------------------------------*/
+/*-------------  WRAPPER  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#showroom>.wrapper {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+    width: 30rem;
+    margin: 0 auto;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  DATA  ----------------*/
+/*--------------------------------------*/
+/****************************************/
+
+.data {
+	box-sizing: border-box;
+	display: flex;
+    width: 100%;
+	justify-content: space-between;
+	padding-top: 11rem;
+	padding-bottom: 4rem;
+}
+
+.data .bold {
+	font-weight: 400;
+}
+
+.data .regular {
+	font-weight: 200;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*-------------  SLIDER  ---------------*/
+/*--------------------------------------*/
+/****************************************/
+
+.slider {
+	border-radius: 1rem;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 4rem;
+	-webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+	mask-image: radial-gradient(circle, white 100%, black 100%);
+}
+
+.slider>.placeholder {
+	border-radius: 1rem;
+	display: block;
+	width: 100%;
+	opacity: 0;
+}
+
+/******************************/
+/*           CLICK            */
+/******************************/
+
+.click {
+	pointer-events: none;
+	position: absolute;
+	z-index: 100;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.click>.left,
+.click>.right {
+	cursor: pointer;
+	pointer-events: all;
+	height: 2rem;
+	width: 2rem;
+	margin: 1.5rem;
+	transform: scale(0);
+	opacity: 0;
+}
+
+html.desktop .slider:hover>.click>.left,
+html.desktop .slider:hover>.click>.right {
+	transform: scale(1);
+	opacity: 1;
+}
+
+.click>.left>div,
+.click>.right>div {
+	height: 100%;
+	width: 100%;
+	transform: scale(1);
+}
+
+html.desktop .click>.left:hover>div,
+html.desktop .click>.right:hover>div {
+	transform: scale(1.25);
+}
+
+.click>.left>div {
+	background: url(../media/navigation/slider_left.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.click>.right>div {
+	background: url(../media/navigation/slider_right.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+/******************************/
+/*            DRAG            */
+/******************************/
+
+.slider>.drag {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 50;
+}
+
+/******************************/
+/*           SLIDE            */
+/******************************/
+
+.slider>.slide {
+	position: absolute;
+	top: 0%;
+	width: 100%;
+}
+
+/* .slider>video.slide {
+	border-radius: 1rem;
+	overflow: hidden;
+} */
+
+.slider>.slide.none {
+	display: none;
+}
+
+.slider>.slide.transition {
+	transition: left 0.25s ease-in-out;
+}
+
+/******************************/
+/*           BULLET           */
+/******************************/
+
+.bullet {
+	position: absolute;
+	left: 50%;
+	bottom: 1.5rem;
+	transform: translateX(-50%);
+	display: flex;
+}
+
+.bullet>div {
+	border-radius: 50%;
+	height: 0.25rem;
+	width: 0.25rem;
+	background: #FFFFFF;
+	transition: opacity 0.25s ease-in-out;
+	opacity: 0.5;
+}
+
+.bullet>div.current {
+	opacity: 1;
+}
+
+.bullet>div.none {
+	display: none;
+}
+
+.bullet>div:not(:last-child) {
+	margin-right: 0.5rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  VIDEO  ---------------*/
+/*--------------------------------------*/
+/****************************************/
+
+.video {
+	border-radius: 1rem;
+	overflow: hidden;
+	margin-bottom: 4rem;
+}
+
+.video>video {
+	border-radius: 1rem;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  IMAGE  ---------------*/
+/*--------------------------------------*/
+/****************************************/
+
+#showroom .image {
+	box-sizing: border-box;
+	border-radius: 1rem;
+	overflow: hidden;
+	margin-bottom: 4rem;
+}
+
+#showroom .image>img {
+	width: 100%;
+}
+
+#showroom .image.border {
+	border: 1px solid #FFFFFF;
+}
+
+#showroom .image.square {
+	border-radius: 0rem;
+}
+
+/******************************/
+/*            BAR             */
+/******************************/
+
+#showroom .image>.bar {
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	background: #141414;
+	border-bottom: 1px solid #FFFFFF;
+    height: 2rem;
+	display: flex;
+	align-items: center;
+}
+#showroom .image>.bar>div {
+	height: 0.5rem;
+	width: 0.5rem;
+	border: 1px solid #FFFFFF;
+	border-radius: 50%;
+	margin-left: 0.25rem;
+}
+
+#showroom .image>.bar>div:first-child {
+	margin-left: 0.75rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*--------------  DESIGN  --------------*/
+/*--------------------------------------*/
+/****************************************/
+
+.design {
+	overflow: hidden;
+    width: 100%;
+	border-radius: 1rem;
+	margin-bottom: 4rem;
+}
+
+.design.border {
+	border: 1px solid #FFFFFF;
+}
+
+/******************************/
+/*           COLOR            */
+/******************************/
+
+.color {
+	display: flex;
+	flex-direction: column;
+	height: 10rem;
+	width: 100%;
+}
+
+.color>div:first-child {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 80%;
+	width: 100%;
+	padding: 0rem 2rem;
+}
+
+.color>div:first-child>div:nth-child(2),
+.color>div:first-child>div:nth-child(3) {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	
+}
+
+.color>div:last-child {
+	display: flex;
+	flex-direction: row;
+	height: 2rem;
+	width: 100%;
+}
+
+.color>div:last-child>div {
+	width: 20%;
+}
+
+/******************************/
+/*            FONT            */
+/******************************/
+
+.font {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 10rem;
+	width: 100%;
+	background: #FFFFFF;
+	padding: 0rem 2rem;
+}
+
+.font>div {
+	display: flex;
+	font-size: 2rem;
+}
+
+/****************************************/
+/*--------------------------------------*/
+/*---------------  TEXT  ---------------*/
+/*--------------------------------------*/
+/****************************************/
+
+.text {
+	box-sizing: border-box;
+	font-weight: 200;
+	padding-bottom: 4rem;
+    width: 100%;
+}
+
+.text>h1 {
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*------------------------------                ---------------------------------*/
+/*------------------------------  MEDIA SCREEN  ---------------------------------*/
+/*------------------------------                ---------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+@media screen and (min-width: 2000px) {
+	
+	/******************************/
+	/*         PORTFOLIO          */
+	/******************************/
+	
+	#collection {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+    
+    #information>.wrapper,
+    #legal>.wrapper,
+    #showroom>.wrapper {
+        width: 40rem;
+    }
+	
+}
+
+@media screen and (max-width: 1200px) {
+	
+	/******************************/
+	/*         PORTFOLIO          */
+	/******************************/
+	
+	#collection {
+		grid-template-columns: 1fr 1fr;
+	}
+	
+}
+
+@media screen and (max-width: 800px) {
+	
+	/******************************/
+	/*         PORTFOLIO          */
+	/******************************/
+	
+	#collection {
+		grid-template-columns: 1fr;
+	}
+	
+}
+
+@media screen and (max-width: 700px) {
+	
+    /******************************/
+	/*         NAVIGATION         */
+	/******************************/
+    
+    #navigation{
+        padding: 1rem;
+        width: 100vw;
+    }
+    
+	/******************************/
+	/*          WRAPPER           */
+	/******************************/
+	
+    #portfolio>.wrapper,
+    #information>.wrapper,
+    #legal>.wrapper,
+    #showroom>.wrapper {
+        padding: 1rem;
+        width: 100vw;
+    }
+	
+	/******************************/
+	/*            LEGAL           */
+	/******************************/
+	
+	#legal h1:first-child{
+		padding-top: 8rem;
+	}
+	
+	/******************************/
+	/*         INFORMATION        */
+	/******************************/
+	
+	#picture {
+		padding-top: 5rem;
+	}
+	
+	#profile>img {
+		height: 10rem;
+		width: 10rem;
+	}
+	
+	#social {
+		padding-bottom: 3rem;
+	}
+	
+	/******************************/
+	/*         PORTFOLIO          */
+	/******************************/
+	
+	#selection {
+		flex-direction: column;
+		align-items: center;
+		padding-top: 0rem;
+		padding-bottom: 1rem;
+	}
+	
+	#selection>li:not(:last-child) {
+		margin-right: 0rem;
+		margin-bottom: 0.25rem;
+	}
+	
+	#collection {
+		grid-gap: 1rem;
+	}
+	
+	#footer {
+		margin-top: 1rem;
+	}
+	
+	/******************************/
+	/*          SHOWROOM          */
+	/******************************/
+	
+    .data {
+		padding-top: 9rem;
+	}
+	
+}
+
+@media screen and (max-width: 400px) {
+	
+	.color>div:first-child,
+	.font {
+		padding: 0rem 1rem;
+	}
+	
+	.color,
+	.font {
+		font-size: 0.75rem;
+	}
+	
+}
+
+@media screen and (max-height: 500px) {
+	
+	/******************************/
+	/*          ENTRANCE          */
+	/******************************/
+	
+	#logo {
+		height: 4rem;
+		width: 4rem;
+	}
+	
+	#text {
+		padding: 2rem 0rem;
+	}
+	
+}
+
+/*********************************************************************************/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*---------------------------------          ------------------------------------*/
+/*---------------------------------  MOBILE  ------------------------------------*/
+/*---------------------------------          ------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*********************************************************************************/
+
+/******************************/
+/*         SCROLLBAR          */
+/******************************/
+
+html.mobile #scrollbarInformation,
+html.mobile #scrollbarLegal,
+html.mobile #scrollbarPortfolio,
+html.mobile #scrollbarShowroom {
+	display: none;
+}
+
+/******************************/
+/*         INFORMATION        */
+/******************************/
+
+html.mobile a[href^="tel"] {
+	color: inherit;
+	text-decoration: none;
+}
+
+/******************************/
+/*         PORTFOLIO          */
+/******************************/
+
+html.mobile .link {
+	display: none;
+}
+
+/******************************/
+/*            iOS             */
+/******************************/
+
+html.mobile {
+    padding: env(safe-area-inset);
+}
