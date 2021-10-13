@@ -663,7 +663,7 @@ function initPreload() {
                     // CALCULATE TIMER
 					console.log("Loading Time: "+Math.ceil(performance.now()-timer)+"ms");
                     // INITIALIZE LOGO
-                    if (!initDevice.mobile()) {
+                    /* if (!initDevice.mobile()) {
                         // GET HEAD ELEMENT
                         var head = document.getElementsByTagName("head")[0];
                         // CREATE SCRIPT
@@ -679,7 +679,7 @@ function initPreload() {
                         // APPEND SCRIPT
                         head.appendChild(tween);
                         head.appendChild(three);
-                    }
+                    } */
                     // SET TIMEOUT
 					setTimeout(function() {
                         body.classList = "entrance";

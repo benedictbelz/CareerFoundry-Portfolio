@@ -466,15 +466,12 @@ html.desktop #navigationRight:hover>.arrow_right {
 	align-self: flex-end;
 	height: 6rem;
 	width: 6rem;
-}
-
-html.mobile #logo {
-    background: url(../media/navigation/logo.gif);
+	background: url(../media/navigation/logo.gif);
 	background-size: cover;
 }
 
 .preload #logo {transform: translateY(-10%);}
-.entrance #loco {transform: translateY(0%);}
+.entrance #logo {transform: translateY(0%);}
 
 html.desktop #logo>canvas {
     height: 100% !important;
