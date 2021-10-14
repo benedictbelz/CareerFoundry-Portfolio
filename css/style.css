@@ -688,6 +688,18 @@ html.desktop #social>a:hover {
 	background-size: contain;
 }
 
+#social>.twitter {
+	background: url(../media/information/twitter.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#social>.medium {
+	background: url(../media/information/medium.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
 /*********************************************************************************/
 /*-------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------*/
